@@ -28,14 +28,6 @@ order_billing_mapping = {}
 order_shipping_mapping = {}
 order_charge_mapping = {}
 
-# Create DataFrames for each table
-events_df = pd.DataFrame()
-orders_df = pd.DataFrame()
-master_df = pd.DataFrame()
-
-parsed_data = defaultdict(list)
-
-df_parsed = pd.DataFrame()
 
 # Iterate through the JSON data
 
@@ -301,21 +293,6 @@ for ord in orders:
     if order_id in order_charge_mapping:
         ord["chargeID"] = order_charge_mapping[order_id]
 
-
-# List of all table arrays
-table_arrays = {
-    "orders": orders,
-    "customer_details": customer_details,
-    "order_items": order_items,
-    "shipping_details": shipping_details,
-    "shipping_lines": shipping_lines,
-    "billing_details": billing_details,
-    "discounts": discounts,
-    "charges": charges,
-    "event": event,
-    "stores": stores,
-    "tax_lines": tax_lines
-}
 
 # List of all table arrays
 table_arrays = {
